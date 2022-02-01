@@ -118,7 +118,7 @@ if mode == 'disk':
         if critical and critical < int(disk_temp) or int(disk_status_nr) == (4 or 5):
             state = 'CRITICAL'
 
-        output += ' - ' + disk_name + ': Status: ' + disk_status + ', Temperature: ' + disk_temp + ' C'
+        output += '\n- ' + disk_name + ': Status: ' + disk_status + ', Temperature: ' + disk_temp + ' C'
         perfdata += 'temperature' + disk_name + '=' + disk_temp + 'c '
     print('%s%s %s' % (state, output, perfdata))
     exitCode()
