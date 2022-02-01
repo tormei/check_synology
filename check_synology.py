@@ -145,7 +145,10 @@ if mode == 'storage':
                 state = 'CRITICAL'
 
             output += ' -  free space: ' + storage_name + ' ' + str(storage_free) + ' GB (' + str(storage_used) + ' GB of ' + str(storage_size) + ' GB used, ' + str(storage_used_percent) + '%)'
-            perfdata += storage_name + '=' + str(storage_used) + 'c '
+            perfdata += storage_name + '_used=%dc ' % storage_used
+            perfdata += storage_name + '_used_percent=%d ' % storage_used_percent
+            perfdata += storage_name + '_free=%dc ' % storage_free
+            perfdata += storage_name + '_size=%dc ' %storage_size
     print('%s%s %s' % (state, output, perfdata))
     exitCode()
 
